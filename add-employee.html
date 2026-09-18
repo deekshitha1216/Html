@@ -1,0 +1,807 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Add Employee</title>
+
+
+    <!-- Google Font -->
+
+    <link rel="preconnect"
+          href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+
+    <style>
+
+        /* =========================
+           RESET
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        /* =========================
+           BODY
+        ========================= */
+
+        body {
+            font-family: 'Poppins', sans-serif;
+
+            background: #f4f2f7;
+
+            color: #222;
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        .navbar {
+            height: 72px;
+
+            padding: 0 45px;
+
+            display: flex;
+
+            align-items: center;
+
+            background: #15131b;
+
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.18);
+        }
+
+
+        /* =========================
+           LOGO
+        ========================= */
+
+        .logo {
+            color: #ffffff;
+
+            font-size: 21px;
+
+            font-weight: 600;
+
+            margin-right: auto;
+        }
+
+
+        .logo span {
+            color: #a855f7;
+        }
+
+
+        /* =========================
+           NAV LINKS
+        ========================= */
+
+        .nav-links {
+            display: flex;
+
+            align-items: center;
+
+            list-style: none;
+
+            gap: 6px;
+        }
+
+
+        .nav-links a {
+            color: #d7d4dc;
+
+            text-decoration: none;
+
+            font-size: 14px;
+
+            font-weight: 500;
+
+            padding: 9px 14px;
+
+            border-radius: 7px;
+
+            transition: 0.3s;
+        }
+
+
+        .nav-links a:hover {
+            background: #282330;
+
+            color: #c084fc;
+        }
+
+
+        /* =========================
+           LOGIN
+        ========================= */
+
+        .login-btn {
+            border: 1px solid #a855f7;
+
+            color: #c084fc !important;
+
+            margin-left: 5px;
+        }
+
+
+        .login-btn:hover {
+            background: #a855f7 !important;
+
+            color: #ffffff !important;
+        }
+
+
+        /* =========================
+           REGISTER
+        ========================= */
+
+        .register-btn {
+            background: #a855f7;
+
+            color: #ffffff !important;
+
+            font-weight: 600 !important;
+
+            margin-left: 2px;
+        }
+
+
+        .register-btn:hover {
+            background: #9333ea !important;
+
+            color: #ffffff !important;
+        }
+
+
+        /* =========================
+           PAGE
+        ========================= */
+
+        .page {
+            min-height: calc(100vh - 72px);
+
+            padding: 45px 20px;
+        }
+
+
+        /* =========================
+           FORM CARD
+        ========================= */
+
+        .container {
+            width: 760px;
+
+            max-width: 100%;
+
+            margin: auto;
+
+            background: #ffffff;
+
+            padding: 40px;
+
+            border-radius: 18px;
+
+            box-shadow:
+                0 12px 40px rgba(0, 0, 0, 0.08);
+
+            border: 1px solid #e8e3ed;
+        }
+
+
+        /* =========================
+           HEADING
+        ========================= */
+
+        .heading {
+            text-align: center;
+
+            margin-bottom: 32px;
+        }
+
+
+        .heading h1 {
+            font-size: 30px;
+
+            font-weight: 600;
+
+            color: #17141c;
+
+            margin-bottom: 7px;
+        }
+
+
+        .heading h1 span {
+            color: #a855f7;
+        }
+
+
+        .heading p {
+            color: #88828f;
+
+            font-size: 13px;
+        }
+
+
+        /* =========================
+           FORM ROW
+        ========================= */
+
+        .form-row {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 22px;
+
+            margin-bottom: 20px;
+        }
+
+
+        /* =========================
+           FORM GROUP
+        ========================= */
+
+        .form-group {
+            display: flex;
+
+            flex-direction: column;
+        }
+
+
+        /* =========================
+           LABEL
+        ========================= */
+
+        label {
+            color: #3b3542;
+
+            font-size: 13px;
+
+            font-weight: 500;
+
+            margin-bottom: 7px;
+        }
+
+
+        /* =========================
+           INPUT / SELECT / TEXTAREA
+        ========================= */
+
+        input,
+        select,
+        textarea {
+
+            width: 100%;
+
+            padding: 12px 14px;
+
+            background: #faf9fc;
+
+            border: 1px solid #ddd7e3;
+
+            border-radius: 8px;
+
+            outline: none;
+
+            color: #333;
+
+            font-family: 'Poppins', sans-serif;
+
+            font-size: 13px;
+
+            transition: 0.25s;
+        }
+
+
+        /* =========================
+           FOCUS
+        ========================= */
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+
+            border-color: #a855f7;
+
+            background: #ffffff;
+
+            box-shadow:
+                0 0 0 3px rgba(168, 85, 247, 0.10);
+        }
+
+
+        /* =========================
+           PLACEHOLDER
+        ========================= */
+
+        input::placeholder,
+        textarea::placeholder {
+
+            color: #aaa5b0;
+
+            font-family: 'Poppins', sans-serif;
+        }
+
+
+        /* =========================
+           ADDRESS
+        ========================= */
+
+        .full-width {
+            margin-bottom: 22px;
+        }
+
+
+        textarea {
+            height: 105px;
+
+            resize: vertical;
+        }
+
+
+        /* =========================
+           BUTTON AREA
+        ========================= */
+
+        .button-area {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 12px;
+
+            margin-top: 5px;
+        }
+
+
+        /* =========================
+           ADD BUTTON
+        ========================= */
+
+        .add-btn {
+
+            padding: 13px;
+
+            border: none;
+
+            border-radius: 8px;
+
+            background: #a855f7;
+
+            color: #ffffff;
+
+            font-family: 'Poppins', sans-serif;
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+
+        .add-btn:hover {
+
+            background: #9333ea;
+
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 6px 15px rgba(168, 85, 247, 0.25);
+        }
+
+
+        /* =========================
+           RESET BUTTON
+        ========================= */
+
+        .reset-btn {
+
+            padding: 13px;
+
+            border: 1px solid #d5cedd;
+
+            border-radius: 8px;
+
+            background: #f7f5f9;
+
+            color: #514957;
+
+            font-family: 'Poppins', sans-serif;
+
+            font-size: 14px;
+
+            font-weight: 500;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+
+        .reset-btn:hover {
+
+            background: #ece8f0;
+
+            border-color: #bdb4c7;
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 700px) {
+
+            .navbar {
+
+                height: auto;
+
+                padding: 18px 20px;
+
+                flex-direction: column;
+
+                gap: 15px;
+            }
+
+
+            .logo {
+                margin-right: 0;
+            }
+
+
+            .nav-links {
+
+                flex-wrap: wrap;
+
+                justify-content: center;
+
+                gap: 5px;
+            }
+
+
+            .page {
+                padding: 25px 15px;
+            }
+
+
+            .container {
+                padding: 28px 22px;
+            }
+
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+
+            .button-area {
+                grid-template-columns: 1fr;
+            }
+
+
+            .heading h1 {
+                font-size: 25px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVBAR
+    ========================= -->
+
+    <nav class="navbar">
+
+
+        <div class="logo">
+
+            Employee
+            <span>Management</span>
+            System
+
+        </div>
+
+
+        <ul class="nav-links">
+
+
+            <li>
+                <a href="/">
+                    Home
+                </a>
+            </li>
+
+
+            <li>
+                <a href="/employee">
+                    Employees
+                </a>
+            </li>
+
+
+            <li>
+                <a href="/add-employee">
+                    Add Employee
+                </a>
+            </li>
+
+
+            <li>
+                <a href="/search">
+                    Search
+                </a>
+            </li>
+
+
+            <li>
+                <a href="/login"
+                   class="login-btn">
+                    Login
+                </a>
+            </li>
+
+
+            <li>
+                <a href="/register"
+                   class="register-btn">
+                    Register
+                </a>
+            </li>
+
+
+        </ul>
+
+    </nav>
+
+
+    <!-- =========================
+         PAGE
+    ========================= -->
+
+    <main class="page">
+
+
+        <!-- =========================
+             FORM
+        ========================= -->
+
+        <div class="container">
+
+
+            <!-- Heading -->
+
+            <div class="heading">
+
+                <h1>
+                    Add <span>Employee</span>
+                </h1>
+
+                <p>
+                    Enter the employee information below
+                </p>
+
+            </div>
+
+
+            <form action="/add-employee"
+                  method="POST">
+
+
+                <!-- ROW 1 -->
+
+                <div class="form-row">
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Employee Name
+                        </label>
+
+                        <input
+                            type="text"
+                            name="name"
+                            placeholder="Enter employee name"
+                            required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Email
+                        </label>
+
+                        <input
+                            type="email"
+                            name="email"
+                            placeholder="Enter email"
+                            required>
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- ROW 2 -->
+
+                <div class="form-row">
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Phone
+                        </label>
+
+                        <input
+                            type="text"
+                            name="phone"
+                            placeholder="Enter phone number"
+                            required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Department
+                        </label>
+
+                        <select name="department"
+                                required>
+
+                            <option value="">
+                                Select Department
+                            </option>
+
+                            <option value="HR">
+                                HR
+                            </option>
+
+                            <option value="IT">
+                                IT
+                            </option>
+
+                            <option value="Finance">
+                                Finance
+                            </option>
+
+                            <option value="Marketing">
+                                Marketing
+                            </option>
+
+                            <option value="Sales">
+                                Sales
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- ROW 3 -->
+
+                <div class="form-row">
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Salary
+                        </label>
+
+                        <input
+                            type="number"
+                            name="salary"
+                            placeholder="Enter salary"
+                            required>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label>
+                            Joining Date
+                        </label>
+
+                        <input
+                            type="date"
+                            name="joining_date"
+                            required>
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- ADDRESS -->
+
+                <div class="full-width">
+
+                    <label>
+                        Address
+                    </label>
+
+                    <textarea
+                        name="address"
+                        placeholder="Enter employee address"></textarea>
+
+                </div>
+
+
+                <!-- BUTTONS -->
+
+                <div class="button-area">
+
+
+                    <button
+                        type="submit"
+                        class="add-btn">
+
+                        Add Employee
+
+                    </button>
+
+
+                    <button
+                        type="reset"
+                        class="reset-btn">
+
+                        Reset
+
+                    </button>
+
+
+                </div>
+
+
+            </form>
+
+
+        </div>
+
+
+    </main>
+
+
+</body>
+
+</html>
+
