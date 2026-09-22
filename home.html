@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Employee Management System</title>
+
+    <style>
+
+        /* =========================
+           RESET
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+
+        /* =========================
+           BODY
+        ========================= */
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+
+            background: #ffffff;
+
+            color: #161414;
+
+            min-height: 100vh;
+
+            transition:
+                background 0.3s ease,
+                color 0.3s ease;
+        }
+
+
+        /* =========================
+           MAIN CONTENT
+        ========================= */
+
+        .content {
+
+            min-height: calc(100vh - 75px);
+
+            display: flex;
+
+            flex-direction: column;
+
+            justify-content: center;
+
+            align-items: center;
+
+            text-align: center;
+
+            padding: 40px;
+
+            transition:
+                background 0.3s ease;
+        }
+
+
+        /* =========================
+           WELCOME CARD
+        ========================= */
+
+        .welcome-card {
+
+            background: white;
+
+            padding: 55px 70px;
+
+            border-radius: 18px;
+
+            box-shadow:
+                0 10px 35px rgba(0, 0, 0, 0.08);
+
+            max-width: 800px;
+
+            width: 100%;
+
+            transition:
+                background 0.3s ease,
+                box-shadow 0.3s ease;
+        }
+
+
+        /* =========================
+           HEADING
+        ========================= */
+
+        .content h1 {
+
+            color: #17151f;
+
+            font-size: 38px;
+
+            margin-bottom: 18px;
+
+            transition: color 0.3s ease;
+        }
+
+
+        .highlight {
+
+            color: #a855f7;
+        }
+
+
+        /* =========================
+           PARAGRAPH
+        ========================= */
+
+        .content p {
+
+            color: #777;
+
+            font-size: 18px;
+
+            line-height: 1.6;
+
+            margin-bottom: 30px;
+
+            transition: color 0.3s ease;
+        }
+
+
+        /* =========================
+           VIEW EMPLOYEES BUTTON
+        ========================= */
+
+        .start-btn {
+
+            display: inline-block;
+
+            background: #a855f7;
+
+            color: white;
+
+            text-decoration: none;
+
+            padding: 12px 25px;
+
+            border-radius: 8px;
+
+            font-size: 16px;
+
+            font-weight: bold;
+
+            transition: 0.3s;
+        }
+
+
+        .start-btn:hover {
+
+            background: #9333ea;
+
+            transform: translateY(-2px);
+        }
+
+
+        /* =========================
+           DARK MODE
+        ========================= */
+
+        body.dark-mode {
+
+            background: #111015;
+
+            color: white;
+        }
+
+
+        body.dark-mode .content {
+
+            background: #111015;
+        }
+
+
+        body.dark-mode .welcome-card {
+
+            background: #1d1a24;
+
+            box-shadow:
+                0 10px 35px rgba(0, 0, 0, 0.5);
+        }
+
+
+        body.dark-mode .content h1 {
+
+            color: white;
+        }
+
+
+        body.dark-mode .content p {
+
+            color: #cccccc;
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            .welcome-card {
+
+                padding: 40px 25px;
+            }
+
+
+            .content h1 {
+
+                font-size: 30px;
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .content {
+
+                padding: 20px;
+            }
+
+
+            .content h1 {
+
+                font-size: 25px;
+            }
+
+
+            .content p {
+
+                font-size: 16px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         NAVBAR
+    ========================= -->
+
+    {% include 'navbar.html' %}
+
+
+    <!-- =========================
+         HOME CONTENT
+    ========================= -->
+
+    <div class="content">
+
+        <div class="welcome-card">
+
+            <h1>
+
+                Welcome to
+
+                <span class="highlight">
+                    Employee Management System
+                </span>
+
+            </h1>
+
+
+            <p>
+
+                Manage employee information, add new employees,
+                search records and maintain your organization
+                efficiently in one place.
+
+            </p>
+
+
+            <a href="/employee"
+               class="start-btn">
+
+                View Employees
+
+            </a>
+
+        </div>
+
+    </div>
+
+
+</body>
+
+</html>
